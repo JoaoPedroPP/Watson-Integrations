@@ -1,0 +1,19 @@
+{
+  "name": "watson",
+  "version": "1.0.0",
+  "description": "Backend em node integrando os serviços do Watson",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "Watson"
+  ],
+  "author": "JoaoPedroPP",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ibm-watson": "^5.4.0"
+  }
+}
