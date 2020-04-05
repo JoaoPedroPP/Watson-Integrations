@@ -70,7 +70,8 @@ app.get('/discovery', (req, res) => {
     discoveryCompleto({
         query: req.query.query,
         environmentId: 'environmentId do seu serviço',
-        collectionId: 'collectionId do seu serviço'
+        collectionId: 'collectionId do seu serviço',
+        passages: true
     })
         .then(data => res.send(data))
         .catch(err => {
