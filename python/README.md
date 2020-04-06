@@ -7,7 +7,7 @@
 
 ## Executando
 
-Execute os seguintes comandos para rodar a apllicação em node.js
+Execute os seguintes comandos para rodar a apllicação em Python.
 
 1. Abra um terminal e execute o seguinte comando.
 
