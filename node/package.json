@@ -10,7 +10,7 @@
     "Watson"
   ],
   "author": "JoaoPedroPP",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
