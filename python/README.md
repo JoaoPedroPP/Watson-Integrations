@@ -17,7 +17,7 @@ Execute os seguintes comandos para rodar a apllicação em node.js
 
     `cd watson-integrations/python`
 
-3. Recomendo que crie um `virtual environment` para o projeto, mas isso é opcional, caso não queira realizar este passo pule para o próximo.
+3. Recomendo que crie um [virtual environment](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/) para o projeto, mas isso é opcional, caso não queira realizar este passo pule para o próximo.
 
 3. Instale as dependências do projeto.
 
