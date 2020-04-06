@@ -1,4 +1,4 @@
-# Python version
+# Node-RED version
 
 ## Requisitos minimos
 
