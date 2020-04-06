@@ -12,7 +12,7 @@ Caso você queira seguir exatamente como foi feito e sugiro fortemente que de um
 
 No mais sugiro que escolha uma versão e continue a partir dos readmes especificos de cada uma delas.
 
-## Lincense
+## License
 
 Copyright 2020 JoãoPedroPP
 
