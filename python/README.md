@@ -15,7 +15,7 @@ Execute os seguintes comandos para rodar a apllicação em node.js
 
 2. Acesse o diretório onde você baixou o repositório git e a pasta node.
 
-    `cd watson-integrations/version`
+    `cd watson-integrations/python`
 
 3. Recomendo que crie um `virtual environment` para o projeto, mas isso é opcional, caso não queira realizar este passo pule para o próximo.
 
