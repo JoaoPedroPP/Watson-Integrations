@@ -1,366 +1,472 @@
-[
-    {
-        "id": "80963028.bf36b",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "e590c0d0.14a1b",
-        "type": "http in",
-        "z": "80963028.bf36b",
-        "name": "",
-        "url": "/nlu-completo",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 130,
-        "y": 100,
-        "wires": [
-            [
-                "5e99dec6.4d4b78",
-                "395aa8a0.8eb8d8"
-            ]
-        ]
-    },
-    {
-        "id": "5e99dec6.4d4b78",
-        "type": "debug",
-        "z": "80963028.bf36b",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 290,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "441103a6.2b0dc4",
-        "type": "natural-language-understanding",
-        "z": "80963028.bf36b",
-        "name": "",
-        "categories": true,
-        "limitcategories": "3",
-        "concepts": true,
-        "maxconcepts": "3",
-        "doc-emotion": false,
-        "doc-emotion-target": "",
-        "doc-sentiment": true,
-        "doc-sentiment-target": "",
-        "entity": true,
-        "entity-emotion": false,
-        "entity-sentiment": false,
-        "maxentities": "10",
-        "keyword": true,
-        "keyword-emotion": false,
-        "keyword-sentiment": false,
-        "maxkeywords": "10",
-        "metadata": false,
-        "relation": true,
-        "semantic": false,
-        "semantic-entities": false,
-        "semantic-keywords": false,
-        "maxsemantics": "50",
-        "limittextcharacters": "0",
-        "syntax": false,
-        "syntax-sentences": false,
-        "syntax-tokens-lemma": false,
-        "syntax-tokens-pos": false,
-        "service-endpoint": "https://api.us-east.natural-language-understanding.watson.cloud.ibm.com/instances/111693c2-d4ad-4772-8114-1baf2d48af65",
-        "x": 500,
-        "y": 100,
-        "wires": [
-            [
-                "473715cf.7588ac",
-                "fab109ed.228588"
-            ]
-        ]
-    },
-    {
-        "id": "395aa8a0.8eb8d8",
-        "type": "function",
-        "z": "80963028.bf36b",
-        "name": "",
-        "func": "msg.payload = msg.payload.text\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 290,
-        "y": 100,
-        "wires": [
-            [
-                "441103a6.2b0dc4",
-                "9c7bd6fc.c1dc1"
-            ]
-        ]
-    },
-    {
-        "id": "9c7bd6fc.c1dc1",
-        "type": "debug",
-        "z": "80963028.bf36b",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 450,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "473715cf.7588ac",
-        "type": "debug",
-        "z": "80963028.bf36b",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 710,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "fab109ed.228588",
-        "type": "change",
-        "z": "80963028.bf36b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "features",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 740,
-        "y": 100,
-        "wires": [
-            [
-                "b0d41eb5.b403a",
-                "93fefa00.525ae8"
-            ]
-        ]
-    },
-    {
-        "id": "b0d41eb5.b403a",
-        "type": "debug",
-        "z": "80963028.bf36b",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 910,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "93fefa00.525ae8",
-        "type": "http response",
-        "z": "80963028.bf36b",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 890,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "aa02bf0f.463658",
-        "type": "http in",
-        "z": "80963028.bf36b",
-        "name": "",
-        "url": "/discovery",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 120,
-        "y": 200,
-        "wires": [
-            [
-                "b84fce4c.6382f"
-            ]
-        ]
-    },
-    {
-        "id": "ebf1d4b2.4dea9",
-        "type": "watson-discovery-v1-query-builder",
-        "z": "80963028.bf36b",
-        "name": "",
-        "password": "",
-        "apikey": "",
-        "environment": "",
-        "environmenthidden": "",
-        "collection": "",
-        "collectionhidden": "",
-        "nlp_query": true,
-        "nlp_queryhidden": "true",
-        "querynlp": "",
-        "querynlphidden": "",
-        "query1": "",
-        "query1hidden": "",
-        "queryvalue1": "",
-        "queryvalue1hidden": "",
-        "query2": "",
-        "query2hidden": "",
-        "queryvalue2": "",
-        "queryvalue2hidden": "",
-        "query3": "",
-        "query3hidden": "",
-        "queryvalue3": "",
-        "queryvalue3hidden": "",
-        "passages": false,
-        "passageshidden": "false",
-        "service-endpoint": "",
-        "x": 570,
-        "y": 200,
-        "wires": [
-            [
-                "bae74b4b.828828"
-            ]
-        ]
-    },
-    {
-        "id": "67932503.90911c",
-        "type": "debug",
-        "z": "80963028.bf36b",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 950,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "b84fce4c.6382f",
-        "type": "change",
-        "z": "80963028.bf36b",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload.query",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 330,
-        "y": 200,
-        "wires": [
-            [
-                "ebf1d4b2.4dea9"
-            ]
-        ]
-    },
-    {
-        "id": "44e50d0d.8d7af4",
-        "type": "watson-discovery-v1",
-        "z": "80963028.bf36b",
-        "name": "",
-        "environmentname": "",
-        "environmentId": "",
-        "collectionId": "",
-        "configurationname": "",
-        "configurationId": "",
-        "language_code": "en",
-        "collection_name": "",
-        "count": "1",
-        "passages": true,
-        "nlp_query": true,
-        "query": "",
-        "filter": "",
-        "aggregation": "",
-        "return": "",
-        "description": "",
-        "size": "LT",
-        "discovery-method": "query",
-        "service-endpoint": "",
-        "x": 880,
-        "y": 200,
-        "wires": [
-            [
-                "67932503.90911c",
-                "fed010ec.f78538"
-            ]
-        ]
-    },
-    {
-        "id": "bae74b4b.828828",
-        "type": "function",
-        "z": "80963028.bf36b",
-        "name": "",
-        "func": "msg.discoveryparams.query = msg.payload\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 750,
-        "y": 200,
-        "wires": [
-            [
-                "44e50d0d.8d7af4"
-            ]
-        ]
-    },
-    {
-        "id": "fed010ec.f78538",
-        "type": "change",
-        "z": "80963028.bf36b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "search_results",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1040,
-        "y": 200,
-        "wires": [
-            [
-                "f0918ccb.6b9f58"
-            ]
-        ]
-    },
-    {
-        "id": "f0918ccb.6b9f58",
-        "type": "http response",
-        "z": "80963028.bf36b",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1190,
-        "y": 200,
-        "wires": []
-    }
-]
+[{
+    "id": "80963028.bf36b",
+    "type": "tab",
+    "label": "Flow 1",
+    "disabled": false,
+    "info": ""
+}, {
+    "id": "e590c0d0.14a1b",
+    "type": "http in",
+    "z": "80963028.bf36b",
+    "name": "",
+    "url": "/nlu-completo",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 130,
+    "y": 100,
+    "wires": [
+        ["5e99dec6.4d4b78", "395aa8a0.8eb8d8"]
+    ]
+}, {
+    "id": "5e99dec6.4d4b78",
+    "type": "debug",
+    "z": "80963028.bf36b",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "x": 290,
+    "y": 140,
+    "wires": []
+}, {
+    "id": "441103a6.2b0dc4",
+    "type": "natural-language-understanding",
+    "z": "80963028.bf36b",
+    "name": "",
+    "categories": true,
+    "limitcategories": "3",
+    "concepts": true,
+    "maxconcepts": "3",
+    "doc-emotion": false,
+    "doc-emotion-target": "",
+    "doc-sentiment": true,
+    "doc-sentiment-target": "",
+    "entity": true,
+    "entity-emotion": false,
+    "entity-sentiment": false,
+    "maxentities": "10",
+    "keyword": true,
+    "keyword-emotion": false,
+    "keyword-sentiment": false,
+    "maxkeywords": "10",
+    "metadata": false,
+    "relation": true,
+    "semantic": false,
+    "semantic-entities": false,
+    "semantic-keywords": false,
+    "maxsemantics": "50",
+    "limittextcharacters": "0",
+    "syntax": false,
+    "syntax-sentences": false,
+    "syntax-tokens-lemma": false,
+    "syntax-tokens-pos": false,
+    "service-endpoint": "",
+    "x": 500,
+    "y": 100,
+    "wires": [
+        ["473715cf.7588ac", "fab109ed.228588"]
+    ]
+}, {
+    "id": "395aa8a0.8eb8d8",
+    "type": "function",
+    "z": "80963028.bf36b",
+    "name": "",
+    "func": "msg.payload = msg.payload.text\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 290,
+    "y": 100,
+    "wires": [
+        ["441103a6.2b0dc4", "9c7bd6fc.c1dc1"]
+    ]
+}, {
+    "id": "9c7bd6fc.c1dc1",
+    "type": "debug",
+    "z": "80963028.bf36b",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 450,
+    "y": 140,
+    "wires": []
+}, {
+    "id": "473715cf.7588ac",
+    "type": "debug",
+    "z": "80963028.bf36b",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "x": 710,
+    "y": 140,
+    "wires": []
+}, {
+    "id": "fab109ed.228588",
+    "type": "change",
+    "z": "80963028.bf36b",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "features",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 740,
+    "y": 100,
+    "wires": [
+        ["b0d41eb5.b403a", "93fefa00.525ae8"]
+    ]
+}, {
+    "id": "b0d41eb5.b403a",
+    "type": "debug",
+    "z": "80963028.bf36b",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 910,
+    "y": 140,
+    "wires": []
+}, {
+    "id": "93fefa00.525ae8",
+    "type": "http response",
+    "z": "80963028.bf36b",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 890,
+    "y": 100,
+    "wires": []
+}, {
+    "id": "aa02bf0f.463658",
+    "type": "http in",
+    "z": "80963028.bf36b",
+    "name": "",
+    "url": "/discovery",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 200,
+    "wires": [
+        ["b84fce4c.6382f"]
+    ]
+}, {
+    "id": "ebf1d4b2.4dea9",
+    "type": "watson-discovery-v1-query-builder",
+    "z": "80963028.bf36b",
+    "name": "",
+    "password": "",
+    "apikey": "",
+    "environment": "",
+    "environmenthidden": "",
+    "collection": "",
+    "collectionhidden": "",
+    "nlp_query": true,
+    "nlp_queryhidden": "true",
+    "querynlp": "",
+    "querynlphidden": "",
+    "query1": "",
+    "query1hidden": "",
+    "queryvalue1": "",
+    "queryvalue1hidden": "",
+    "query2": "",
+    "query2hidden": "",
+    "queryvalue2": "",
+    "queryvalue2hidden": "",
+    "query3": "",
+    "query3hidden": "",
+    "queryvalue3": "",
+    "queryvalue3hidden": "",
+    "passages": false,
+    "passageshidden": "false",
+    "service-endpoint": "",
+    "x": 570,
+    "y": 200,
+    "wires": [
+        ["bae74b4b.828828"]
+    ]
+}, {
+    "id": "67932503.90911c",
+    "type": "debug",
+    "z": "80963028.bf36b",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "x": 950,
+    "y": 280,
+    "wires": []
+}, {
+    "id": "b84fce4c.6382f",
+    "type": "change",
+    "z": "80963028.bf36b",
+    "name": "",
+    "rules": [{
+        "t": "move",
+        "p": "payload.query",
+        "pt": "msg",
+        "to": "payload",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 330,
+    "y": 200,
+    "wires": [
+        ["ebf1d4b2.4dea9"]
+    ]
+}, {
+    "id": "44e50d0d.8d7af4",
+    "type": "watson-discovery-v1",
+    "z": "80963028.bf36b",
+    "name": "",
+    "environmentname": "",
+    "environmentId": "",
+    "collectionId": "",
+    "configurationname": "",
+    "configurationId": "",
+    "language_code": "en",
+    "collection_name": "",
+    "count": "1",
+    "passages": true,
+    "nlp_query": true,
+    "query": "",
+    "filter": "",
+    "aggregation": "",
+    "return": "",
+    "description": "",
+    "size": "LT",
+    "discovery-method": "query",
+    "service-endpoint": "",
+    "x": 880,
+    "y": 200,
+    "wires": [
+        ["67932503.90911c", "fed010ec.f78538"]
+    ]
+}, {
+    "id": "bae74b4b.828828",
+    "type": "function",
+    "z": "80963028.bf36b",
+    "name": "",
+    "func": "msg.discoveryparams.query = msg.payload\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 750,
+    "y": 200,
+    "wires": [
+        ["44e50d0d.8d7af4"]
+    ]
+}, {
+    "id": "fed010ec.f78538",
+    "type": "change",
+    "z": "80963028.bf36b",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "search_results",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1040,
+    "y": 200,
+    "wires": [
+        ["f0918ccb.6b9f58"]
+    ]
+}, {
+    "id": "f0918ccb.6b9f58",
+    "type": "http response",
+    "z": "80963028.bf36b",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1190,
+    "y": 200,
+    "wires": []
+}, {
+    "id": "33b78e1e.737262",
+    "type": "http in",
+    "z": "80963028.bf36b",
+    "name": "",
+    "url": "/emocoes",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 380,
+    "wires": [
+        ["23b6943b.e5e46c"]
+    ]
+}, {
+    "id": "365ff6d5.073402",
+    "type": "watson-translator",
+    "z": "80963028.bf36b",
+    "name": "",
+    "action": "translate",
+    "basemodel": "ar-en",
+    "domain": "general",
+    "srclang": "pt",
+    "destlang": "en",
+    "password": "",
+    "apikey": "",
+    "custom": "",
+    "domainhidden": "general",
+    "srclanghidden": "pt",
+    "destlanghidden": "en",
+    "basemodelhidden": "",
+    "customhidden": "",
+    "filetype": "forcedglossary",
+    "trainid": "",
+    "lgparams2": true,
+    "service-endpoint": "",
+    "x": 430,
+    "y": 380,
+    "wires": [
+        ["63c171f.8c9fd1", "3bcc98c3.749fd"]
+    ]
+}, {
+    "id": "23b6943b.e5e46c",
+    "type": "function",
+    "z": "80963028.bf36b",
+    "name": "",
+    "func": "msg.payload = msg.payload.text\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 270,
+    "y": 380,
+    "wires": [
+        ["365ff6d5.073402"]
+    ]
+}, {
+    "id": "63c171f.8c9fd1",
+    "type": "debug",
+    "z": "80963028.bf36b",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "x": 550,
+    "y": 440,
+    "wires": []
+}, {
+    "id": "3bcc98c3.749fd",
+    "type": "natural-language-understanding",
+    "z": "80963028.bf36b",
+    "name": "",
+    "categories": false,
+    "limitcategories": "3",
+    "concepts": false,
+    "maxconcepts": "3",
+    "doc-emotion": true,
+    "doc-emotion-target": "",
+    "doc-sentiment": false,
+    "doc-sentiment-target": "",
+    "entity": false,
+    "entity-emotion": false,
+    "entity-sentiment": false,
+    "maxentities": "10",
+    "keyword": false,
+    "keyword-emotion": false,
+    "keyword-sentiment": false,
+    "maxkeywords": "10",
+    "metadata": false,
+    "relation": false,
+    "semantic": false,
+    "semantic-entities": false,
+    "semantic-keywords": false,
+    "maxsemantics": "50",
+    "limittextcharacters": "0",
+    "syntax": false,
+    "syntax-sentences": false,
+    "syntax-tokens-lemma": false,
+    "syntax-tokens-pos": false,
+    "service-endpoint": "",
+    "x": 680,
+    "y": 380,
+    "wires": [
+        ["96c1f020.407df", "b2134a06.38a2d8"]
+    ]
+}, {
+    "id": "96c1f020.407df",
+    "type": "debug",
+    "z": "80963028.bf36b",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "x": 750,
+    "y": 460,
+    "wires": []
+}, {
+    "id": "b2134a06.38a2d8",
+    "type": "function",
+    "z": "80963028.bf36b",
+    "name": "",
+    "func": "let top_emotion = msg.features.emotion.document.emotion.sadness;\nlet top_emotion_label = 'sadness';\nif (top_emotion < msg.features.emotion.document.emotion.joy) {\n    top_emotion = msg.features.emotion.document.emotion.joy;\n    top_emotion_label = 'joy';\n}\nif (top_emotion < msg.features.emotion.document.emotion.fear) {\n    top_emotion = msg.features.emotion.document.emotion.fear;\n    top_emotion_label = 'fear';\n}\nif (top_emotion < msg.features.emotion.document.emotion.disgust) {\n    top_emotion = msg.features.emotion.document.emotion.disgust;\n    top_emotion_label = 'disgust';\n}\nif (top_emotion < msg.features.emotion.document.emotion.anger) {\n    top_emotion = msg.features.emotion.document.emotion.anger;\n    top_emotion_label = 'anger';\n}\nmsg.payload = {\n    emocao: top_emotion_label,\n    valor: top_emotion\n}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 910,
+    "y": 380,
+    "wires": [
+        ["7cede69c.2ee21", "a303fa69.33621"]
+    ]
+}, {
+    "id": "7cede69c.2ee21",
+    "type": "debug",
+    "z": "80963028.bf36b",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 970,
+    "y": 440,
+    "wires": []
+}, {
+    "id": "a303fa69.33621",
+    "type": "http response",
+    "z": "80963028.bf36b",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1050,
+    "y": 380,
+    "wires": []
+}]
