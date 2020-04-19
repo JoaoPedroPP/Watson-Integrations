@@ -10,9 +10,9 @@ const app = express();
 const nlu = new NLU({
     version: '2019-07-12',
     authenticator: new IamAuthenticator({
-        apikey: 'Y9nMYUqB99ySFCoHVqcrx9ZA98IQNUyn4_hhI-8exT70'
+        apikey: 'APIKEY do seu serviço'
     }),
-    url: 'https://api.us-east.natural-language-understanding.watson.cloud.ibm.com/instances/111693c2-d4ad-4772-8114-1baf2d48af65'
+    url: 'url do seu serviço'
 });
 
 const discovery = new Discovery({
@@ -26,9 +26,9 @@ const discovery = new Discovery({
 const lt = new LT({
     version: '2018-05-01',
     authenticator: new IamAuthenticator({
-        apikey: '9z5rsOnFfgi1EwMusHkik1HLzc1ppS2hUW9qBcl83rku'
+        apikey: 'APIKEY do seu serviço'
     }),
-    url: 'https://api.us-east.language-translator.watson.cloud.ibm.com/instances/363cb8c2-b221-432b-b185-a36c91239197'
+    url: 'url do seu serviço'
 });
 
 const nluCompleto = (params) => {
